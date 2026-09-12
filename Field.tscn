@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://cpksj53cmko8n"]
+
+[ext_resource type="Script" uid="uid://gfm7j6t6roah" path="res://character_body_3d.gd" id="1_7sdab"]
+[ext_resource type="Texture2D" uid="uid://drvn14xs34qfe" path="res://Grass_Texture.png" id="1_m6s6n"]
+[ext_resource type="PackedScene" uid="uid://pgmthmmahtwf" path="res://dield.tscn" id="2_m6s6n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m6s6n"]
+albedo_texture = ExtResource("1_m6s6n")
+uv1_scale = Vector3(1000, 1000, 1000)
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_yf5fn"]
+material = SubResource("StandardMaterial3D_m6s6n")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
+size = Vector3(3.6926284, 8.941399, 0.20147264)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_57qmd"]
+size = Vector3(0.0126953125, 4.6951904, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d0u6y"]
+size = Vector3(0.08959961, 2.7003174, 0.095466614)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g4v7s"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_g4v7s"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_57qmd"]
+sky_top_color = Color(0, 0.46629024, 0.7598042, 1)
+sky_horizon_color = Color(0.5172439, 0.5256144, 0.542363, 1)
+ground_bottom_color = Color(0.8, 0.94509804, 0.68235296, 1)
+ground_horizon_color = Color(0.6156863, 0.7529412, 0.6117647, 1)
+
+[sub_resource type="Sky" id="Sky_yf5fn"]
+sky_material = SubResource("ProceduralSkyMaterial_57qmd")
+
+[sub_resource type="Environment" id="Environment_g4v7s"]
+background_mode = 2
+sky = SubResource("Sky_yf5fn")
+
+[node name="Node3D" type="Node3D" unique_id=1167685226]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=741140462]
+transform = Transform3D(13.807, 0, 0, 0, 1, 0, 0, 0, 13.8, 0, -0.5041523, 0)
+
+[node name="Floor" type="CollisionShape3D" parent="StaticBody3D" unique_id=116256649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.017570615, 0)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/Floor" unique_id=555718471]
+transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 15, 0, 0, 0)
+mesh = SubResource("BoxMesh_yf5fn")
+
+[node name="Barrier" type="CollisionShape3D" parent="StaticBody3D" unique_id=1178003440]
+transform = Transform3D(0.072, 0, 0, 0, 0.072, 0, 0, 0, 0.072, -0.0007026846, 0.7865405, 0.12587228)
+shape = SubResource("BoxShape3D_yf5fn")
+debug_color = Color(1, 0, 0, 1)
+
+[node name="Barrier2" type="CollisionShape3D" parent="StaticBody3D" unique_id=803089115]
+transform = Transform3D(-3.1472192e-09, 0, 0.07199999, 0, 0.07199999, 0, -0.07199999, 0, -3.1472192e-09, 0.12482204, 0.7865405, 0.00012572261)
+shape = SubResource("BoxShape3D_yf5fn")
+debug_color = Color(1, 0, 0, 1)
+
+[node name="Barrier3" type="CollisionShape3D" parent="StaticBody3D" unique_id=724975736]
+transform = Transform3D(-0.07199999, 0, 6.2944383e-09, 0, 0.07199999, 0, -6.2944383e-09, 0, -0.07199999, 0.0027414681, 0.7865405, -0.12509061)
+shape = SubResource("BoxShape3D_yf5fn")
+debug_color = Color(1, 0, 0, 1)
+
+[node name="Barrier4" type="CollisionShape3D" parent="StaticBody3D" unique_id=1754445813]
+transform = Transform3D(-3.1472192e-09, 0, -0.07199999, 0, 0.07199999, 0, 0.072, 0, -3.1472198e-09, -0.12278325, 0.7865405, 0.0006559275)
+shape = SubResource("BoxShape3D_yf5fn")
+debug_color = Color(1, 0, 0, 1)
+
+[node name="Wall" type="CollisionShape3D" parent="StaticBody3D" unique_id=718134883]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5063476, 1.8475952, 0)
+shape = SubResource("BoxShape3D_57qmd")
+debug_color = Color(0.41568628, 0, 1, 0.41960785)
+
+[node name="Wall2" type="CollisionShape3D" parent="StaticBody3D" unique_id=2142822781]
+transform = Transform3D(-4.3711385e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.015671838, 1.8475952, 0.4895085)
+shape = SubResource("BoxShape3D_57qmd")
+debug_color = Color(0.41568628, 0, 1, 0.41960785)
+
+[node name="Wall3" type="CollisionShape3D" parent="StaticBody3D" unique_id=1432237126]
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.45978498, 1.8475952, -0.01702392)
+shape = SubResource("BoxShape3D_57qmd")
+debug_color = Color(0.41568628, 0, 1, 0.41960785)
+
+[node name="Wall4" type="CollisionShape3D" parent="StaticBody3D" unique_id=1240107658]
+transform = Transform3D(-4.3711385e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.030890772, 1.8475952, -0.5065324)
+shape = SubResource("BoxShape3D_57qmd")
+debug_color = Color(0.41568628, 0, 1, 0.41960785)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1042889930]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0001220655, 0.8501587, -0.00010299685)
+shape = SubResource("BoxShape3D_d0u6y")
+debug_color = Color(1, 1, 0, 0.41960785)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1021188136]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.7723918, 1.0912144, 0)
+script = ExtResource("1_7sdab")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1306220396]
+shape = SubResource("CapsuleShape3D_g4v7s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/CollisionShape3D" unique_id=626201305]
+mesh = SubResource("CapsuleMesh_g4v7s")
+
+[node name="Head" type="Node3D" parent="CharacterBody3D" unique_id=1198929554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47120166, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Head" unique_id=1520501536]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Field" parent="." unique_id=961230818 instance=ExtResource("2_m6s6n")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=878643200]
+environment = SubResource("Environment_g4v7s")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=1754298696]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.082472, 0)
